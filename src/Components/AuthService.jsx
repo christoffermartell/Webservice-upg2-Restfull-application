@@ -1,8 +1,4 @@
- 
  const AuthService = {
-
-
-    
 
      register: async (user) =>{
         try {
@@ -39,9 +35,6 @@
             
         }
      }
-
-    
-     
 
  }
 

@@ -1,14 +1,14 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { AuthContext } from "./AuthProvider";
+import { Context } from "./AuthProvider";
 import AuthService from "./AuthService";
+ 
 
 
 export const LoginPage = () => {
-
+    const {setIsAuthenticated, setToken} = useContext(Context);
 	const [user, setUser] = useState({ username: "", password: "" });
    
-//	const  {setisAuthenticated } = useContext(AuthContext);
 	let history = useHistory();
 
 	const changeUserData = (e) => {
@@ -19,20 +19,18 @@ export const LoginPage = () => {
 		e.preventDefault();
 		const token = await AuthService.login(user);
 	
-
 		if (token) {
-//			setisAuthenticated(token);
+			setIsAuthenticated(true);
+            setToken(token);
             alert("Successfully loggin ")
             console.log("Token has been created" + token);
 			history.push("/home");
 		}else{
             alert("Something went wrong")
         }
+		
 	};
 
-    
-
-    
 
 	return (
 		<div style={{ maxWidth: "60rem", textAlign: "center", margin: "auto" }}>

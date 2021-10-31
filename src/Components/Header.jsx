@@ -4,14 +4,10 @@ import {Link} from "react-router-dom"
 
 export default function Header() {
 
-
-    
         const navStyle = {
             color : "white"
         };
     
-
-
     return (
         <div className="card bg-secondary text-center text-light rounded-0">
             <h1 className="display-4">
